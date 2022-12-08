@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { fetchImageListBySelectedFilter } from "../../services";
+import { fetchImageListBySelectedFilter } from "../../services/FetchData";
+import {normalizeArrayImagesForSimpleSearch} from "../../services/UtilsHelper"; 
 
 import Gallery from "../Gallery";
 import Aside from "../Aside";
@@ -7,18 +8,6 @@ import Aside from "../Aside";
 function Main() {
   const [imageList, setImageList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  function normalizeArrayImagesForSimpleSearch(dataSource) {
-    let resultArray = [];
-    Object.entries(dataSource).map((item) => {
-      resultArray.push({
-        url: item[1],
-        key: item[0],
-      });
-    });
-
-    return resultArray;
-  }
 
   function handleImageListUpdated(selectedFilter) {
     setImageList([]);

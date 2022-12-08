@@ -1,12 +1,7 @@
 import React, { useState } from "react";
+import {toPascalCase} from "../../services/UtilsHelper"
 
 function Selector({ dataSource, handleChange }) {
-  const toPascalCase = (str) =>
-    str.replace(
-      /\w\S*/g,
-      (m) => m.charAt(0).toUpperCase() + m.substr(1).toLowerCase()
-    );
-
 
   return (
     <select

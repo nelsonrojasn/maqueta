@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
+
 import Selector from "../Selector";
 import SearchButton from "../SearchButton";
-import { fetchAllBreeds } from "../../services";
 import InfoFiltros from "../InfoFiltros";
+
+import { fetchAllBreeds } from "../../services/FetchData";
+import {normalizeObjectAsArrayForSimpleSearch} from "../../services/UtilsHelper";
+
 
 function Search({ handleImageListUpdated }) {
   const [razas, setRazas] = useState([]);
@@ -10,30 +14,6 @@ function Search({ handleImageListUpdated }) {
   const [selectedRaza, setSelectedRaza] = useState("");
   const [selectedSubRaza, setSelectedSubRaza] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
-
-  function normalizeItemsForSimpleSearch(items) {
-    if (items.length === 0) {
-      return [];
-    }
-
-    let arrayItems = [];
-    items.map((item) => {
-      arrayItems.push({ nombre: item });
-    });
-    return arrayItems;
-  }
-
-  function normalizeObjectAsArrayForSimpleSearch(dataSource) {
-    let resultArray = [];
-
-    Object.entries(dataSource).map((item) =>
-      resultArray.push({
-        nombre: item[0],
-        items: normalizeItemsForSimpleSearch(item[1]),
-      })
-    );
-    return resultArray;
-  }
 
   useEffect(() => {
     fetchAllBreeds()

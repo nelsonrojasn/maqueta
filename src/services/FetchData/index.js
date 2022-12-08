@@ -15,6 +15,3 @@ export const fetchImageListBySelectedFilter = async (selectedBreed) => {
     return response.json()
   }
 }
-
-
-//export const getImagesFromBreed = (breed) => fetch(`https://dog.ceo/api/breed/{breed}/images`)
