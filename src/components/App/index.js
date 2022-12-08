@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import Header from "../Header";
 import Footer from "../Footer";
@@ -9,13 +9,11 @@ export const DataContext = React.createContext();
 function App() {
   const [data, setData] = useState({ imageList: [], isLoading: false });
 
-  function updateContextData(newData)
-  {
-    console.log("~~~~", newData);
+  function updateContextData(newData) {
     setData(newData);
   }
 
-  const providerValue = {data: data, updateContextData};
+  const providerValue = { data: data, updateContextData };
 
   return (
     <div className="container">
