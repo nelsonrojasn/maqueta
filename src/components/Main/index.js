@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { fetchImageListBySelectedFilter } from "../../services/FetchData";
-import {normalizeArrayImagesForSimpleSearch} from "../../services/UtilsHelper"; 
 
 import Gallery from "../Gallery";
 import Aside from "../Aside";
+
+import { fetchImageListBySelectedFilter } from "../../services/FetchData";
+import { normalizeArrayImagesForSimpleSearch } from "../../services/UtilsHelper";
 
 function Main() {
   const [imageList, setImageList] = useState([]);
