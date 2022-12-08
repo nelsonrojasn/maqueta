@@ -33,15 +33,12 @@ function Search({ handleImageListUpdated }) {
     let currentValue = event.target.value;
     setSelectedRaza(currentValue);
     setSelectedSubRaza("");
-    //console.log("=====", currentValue, razas);
+    
     let subRazas = razas.filter((item) => {
       return item.nombre === currentValue;
     });
 
-    //console.log("~~~~", subRazas);
-
     setSubRazas(subRazas[0].items);
-
     setSelectedFilter(currentValue);
   }
 
