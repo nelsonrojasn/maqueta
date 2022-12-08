@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
-import {toPascalCase} from "../../services/UtilsHelper"
+import { toPascalCase } from "../../services/UtilsHelper";
 
 function Selector({ dataSource, handleChange }) {
-
   return (
     <select
       className="form-select mb-2"

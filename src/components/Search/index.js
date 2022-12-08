@@ -5,10 +5,9 @@ import SearchButton from "../SearchButton";
 import InfoFiltros from "../InfoFiltros";
 
 import { fetchAllBreeds } from "../../services/FetchData";
-import {normalizeObjectAsArrayForSimpleSearch} from "../../services/UtilsHelper";
+import { normalizeObjectAsArrayForSimpleSearch } from "../../services/UtilsHelper";
 
-
-function Search({ handleImageListUpdated }) {
+function Search() {
   const [razas, setRazas] = useState([]);
   const [subRazas, setSubRazas] = useState([]);
   const [selectedRaza, setSelectedRaza] = useState("");
@@ -18,10 +17,8 @@ function Search({ handleImageListUpdated }) {
   useEffect(() => {
     fetchAllBreeds()
       .then((res) => {
-        //console.log(res);
         let arrayResult = normalizeObjectAsArrayForSimpleSearch(res.message);
 
-        //console.log("~~~~", arrayResult);
         setRazas(arrayResult);
       })
       .catch((e) => {
@@ -33,7 +30,7 @@ function Search({ handleImageListUpdated }) {
     let currentValue = event.target.value;
     setSelectedRaza(currentValue);
     setSelectedSubRaza("");
-    
+
     let subRazas = razas.filter((item) => {
       return item.nombre === currentValue;
     });
@@ -65,10 +62,7 @@ function Search({ handleImageListUpdated }) {
           selectedFilter={selectedFilter}
         />
 
-        <SearchButton
-          handleImageListUpdated={handleImageListUpdated}
-          selectedFilter={selectedFilter}
-        />
+        <SearchButton selectedFilter={selectedFilter} />
       </div>
     </div>
   );

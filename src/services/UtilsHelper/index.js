@@ -4,7 +4,7 @@ export const normalizeItemsForSimpleSearch = (items) => {
     arrayItems.push({ nombre: item });
   });
   return arrayItems;
-}
+};
 
 export const normalizeObjectAsArrayForSimpleSearch = (dataSource) => {
   let resultArray = [];
@@ -16,7 +16,7 @@ export const normalizeObjectAsArrayForSimpleSearch = (dataSource) => {
     })
   );
   return resultArray;
-}
+};
 
 export const normalizeArrayImagesForSimpleSearch = (dataSource) => {
   let resultArray = [];
@@ -28,10 +28,10 @@ export const normalizeArrayImagesForSimpleSearch = (dataSource) => {
   });
 
   return resultArray;
-}
+};
 
 export const toPascalCase = (str) =>
-    str.replace(
-      /\w\S*/g,
-      (m) => m.charAt(0).toUpperCase() + m.substr(1).toLowerCase()
-    );
+  str.replace(
+    /\w\S*/g,
+    (m) => m.charAt(0).toUpperCase() + m.substr(1).toLowerCase()
+  );
