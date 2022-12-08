@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Gallery from "../Gallery";
 import Aside from "../Aside";
+
+import {DataContext} from "../App";
 
 import { fetchImageListBySelectedFilter } from "../../services/FetchData";
 import { normalizeArrayImagesForSimpleSearch } from "../../services/UtilsHelper";
 
 function Main() {
-  const [imageList, setImageList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+
+  const contextData = useContext(DataContext);
 
   function handleImageListUpdated(selectedFilter) {
-    setImageList([]);
+    
     if (selectedFilter.length > 0) {
-      setIsLoading(true);
+      contextData.updateContextData({imageList: [], isLoading: true})
       getImageList(selectedFilter);
     }
   }
@@ -21,12 +23,10 @@ function Main() {
   function getImageList(selectedFilter) {
     fetchImageListBySelectedFilter(selectedFilter)
       .then((res) => {
-        //console.log(res);
         let arrayResult = normalizeArrayImagesForSimpleSearch(res.message);
 
-        //console.log("~~~~", arrayResult);
-        setImageList(arrayResult);
-        setIsLoading(false);
+        contextData.updateContextData({imageList: arrayResult, isLoading: false})
+
       })
       .catch((e) => {
         console.log(e.message);
@@ -36,7 +36,7 @@ function Main() {
   return (
     <main className="row mt-4 mb-2">
       <Aside handleImageListUpdated={handleImageListUpdated} />
-      <Gallery dataSource={imageList} isLoading={isLoading} />
+      <Gallery dataSource={contextData.data.imageList} isLoading={contextData.data.isLoading} />
     </main>
   );
 }
