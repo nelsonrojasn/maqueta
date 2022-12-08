@@ -4,12 +4,14 @@ import Header from "../Header";
 import Footer from "../Footer";
 import Main from "../Main";
 
+
 function App() {
+
   return (
-    <div className="container">
-      <Header />
-      <Main />
-      <Footer />
+    <div className="container">      
+        <Header />
+        <Main />
+        <Footer />      
     </div>
   );
 }

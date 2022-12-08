@@ -1,59 +1,99 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Selector from "../Selector";
+import SearchButton from "../SearchButton";
+import { fetchAllBreeds } from "../../services";
+import InfoFiltros from "../InfoFiltros";
 
-function Search() {
+function Search({ handleImageListUpdated }) {
+  const [razas, setRazas] = useState([]);
+  const [subRazas, setSubRazas] = useState([]);
+  const [selectedRaza, setSelectedRaza] = useState("");
+  const [selectedSubRaza, setSelectedSubRaza] = useState("");
+  const [selectedFilter, setSelectedFilter] = useState("");
+
+  function normalizeItemsForSimpleSearch(items) {
+    if (items.length === 0) {
+      return [];
+    }
+
+    let arrayItems = [];
+    items.map((item) => {
+      arrayItems.push({ nombre: item });
+    });
+    return arrayItems;
+  }
+
+  function normalizeObjectAsArrayForSimpleSearch(dataSource) {
+    let resultArray = [];
+
+    Object.entries(dataSource).map((item) =>
+      resultArray.push({
+        nombre: item[0],
+        items: normalizeItemsForSimpleSearch(item[1]),
+      })
+    );
+    return resultArray;
+  }
+
+  useEffect(() => {
+    fetchAllBreeds()
+      .then((res) => {
+        //console.log(res);
+        let arrayResult = normalizeObjectAsArrayForSimpleSearch(res.message);
+
+        //console.log("~~~~", arrayResult);
+        setRazas(arrayResult);
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
+  }, []);
+
+  function handleChangeRaza(event) {
+    let currentValue = event.target.value;
+    setSelectedRaza(currentValue);
+    setSelectedSubRaza("");
+    //console.log("=====", currentValue, razas);
+    let subRazas = razas.filter((item) => {
+      return item.nombre === currentValue;
+    });
+
+    //console.log("~~~~", subRazas);
+
+    setSubRazas(subRazas[0].items);
+
+    setSelectedFilter(currentValue);
+  }
+
+  function handleChangeSubRaza(event) {
+    let currentValue = event.target.value;
+    setSelectedSubRaza(currentValue);
+
+    let selectedFilter =
+      selectedRaza + (currentValue.length > 0 ? "/" + currentValue : "");
+    setSelectedFilter(selectedFilter);
+  }
+
   return (
-    <>
-      <div className="card">
-        <div className="card-body">
-          <label>Seleccione Raza</label>
-          <select
-            className="form-select mb-2"
-            aria-label="Default select example"
-          >
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+    <div className="card">
+      <div className="card-body">
+        <label>Seleccione Raza</label>
+        <Selector dataSource={razas} handleChange={handleChangeRaza} />
+        <label>Seleccione Sub Raza</label>
+        <Selector dataSource={subRazas} handleChange={handleChangeSubRaza} />
 
-          <label>Seleccione Sub-raza</label>
-          <select className="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
-      </div>
+        <InfoFiltros
+          selectedRaza={selectedRaza}
+          selectedSubRaza={selectedSubRaza}
+          selectedFilter={selectedFilter}
+        />
 
-      <div className="card mt-4">
-        <div className="card-body">
-          <label>Otras opciones de búsqueda</label>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault"
-            />
-            <label className="form-check-label" for="flexCheckDefault">
-              Con visualizaciones recientes
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckChecked"
-            />
-            <label className="form-check-label" for="flexCheckChecked">
-              Con comentarios
-            </label>
-          </div>
-        </div>
+        <SearchButton
+          handleImageListUpdated={handleImageListUpdated}
+          selectedFilter={selectedFilter}
+        />
       </div>
-    </>
+    </div>
   );
 }
 

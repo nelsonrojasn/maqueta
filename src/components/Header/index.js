@@ -2,9 +2,9 @@ import React from "react";
 
 function Header() {
   return (
-    <nav class="navbar navbar-light bg-light">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Dog Ceo Challenge</span>
+    <nav className="navbar navbar-light bg-light">
+      <div className="container-fluid">
+        <span className="navbar-brand mb-0 h1">Dog Ceo Challenge - Nelson Rojas</span>
       </div>
     </nav>
   );
