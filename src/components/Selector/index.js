@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { toPascalCase } from "../../services/UtilsHelper";
 
@@ -7,6 +7,7 @@ function Selector({ dataSource, handleChange }) {
     <select
       className="form-select mb-2"
       aria-label="Default select example"
+      role="dropdown"
       defaultValue={""}
       onChange={(event) => handleChange(event)}
     >

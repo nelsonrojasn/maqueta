@@ -1,6 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
-import { DataContext } from "../App";
+import { DataContext } from "../App/context";
 
 import { fetchImageListBySelectedFilter } from "../../services/FetchData";
 import { normalizeArrayImagesForSimpleSearch } from "../../services/UtilsHelper";
