@@ -5,7 +5,7 @@
 
 Este proyecto trata sobre consumir el API provisto por Dog CEO como parte del desafío de desarrollo de una solución utilizando React JS.
 
-Se han utilizado Hooks y el Context para llevar acabo la persistencia de los estados en la aplicación.
+Se han utilizado Hooks y el Context para la persistencia de los estados en la aplicación.
 
 Las peticiones de datos se han basado en la librería estándar, apoyado de async y await.
 
