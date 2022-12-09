@@ -4,7 +4,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import Main from "../Main";
 
-export const DataContext = React.createContext();
+import {DataContext} from "./context";
 
 function App() {
   const [data, setData] = useState({ imageList: [], isLoading: false });
@@ -16,7 +16,7 @@ function App() {
   const providerValue = { data: data, updateContextData };
 
   return (
-    <div className="container">
+    <div className="container" role="app">
       <Header />
       <DataContext.Provider value={providerValue}>
         <Main />

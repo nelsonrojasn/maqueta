@@ -3,6 +3,6 @@ import Header from '../components/Header';
 
 test('render brand in nav', () => {
   render(<Header />);
-  const element = screen.getByText(/brand/i);
+  const element = screen.getByText(/dog ceo challenge/i);
   expect(element).toBeInTheDocument();
 });

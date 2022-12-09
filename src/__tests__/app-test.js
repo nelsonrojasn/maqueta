@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import App from '../components/App';
+import App from "../components/App";
 
-test('renders learn react link', () => {
+test('render app, find it by role', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const roleApp = screen.getByRole(/app/i);
+  expect(roleApp).toBeInTheDocument();
+
 });
