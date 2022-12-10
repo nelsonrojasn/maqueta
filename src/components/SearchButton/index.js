@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 
 import { DataContext } from "../App/context";
-
 import { fetchImageListBySelectedFilter } from "../../services/FetchData";
-import { normalizeArrayImagesForSimpleSearch } from "../../services/UtilsHelper";
 
 function SearchButton({ selectedFilter }) {
   const contextData = useContext(DataContext);
@@ -15,19 +13,12 @@ function SearchButton({ selectedFilter }) {
     }
   }
 
-  function getImageList(selectedFilter) {
-    fetchImageListBySelectedFilter(selectedFilter)
-      .then((res) => {
-        let arrayResult = normalizeArrayImagesForSimpleSearch(res.message);
-
-        contextData.updateContextData({
-          imageList: arrayResult,
-          isLoading: false,
-        });
-      })
-      .catch((e) => {
-        console.log(e.message);
-      });
+  async function getImageList(selectedFilter) {
+    const arrayResult = await fetchImageListBySelectedFilter(selectedFilter);
+    contextData.updateContextData({
+      imageList: arrayResult,
+      isLoading: false,
+    });
   }
 
   return (
