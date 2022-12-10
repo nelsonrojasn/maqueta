@@ -1,7 +1,7 @@
 # Dog CEO Challenge
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nelsonrojasn/maqueta/badges/quality-score.png?b=refactorizacion-funciones-utilitarias)](https://scrutinizer-ci.com/g/nelsonrojasn/maqueta/?branch=refactorizacion-funciones-utilitarias)
-[![Build Status](https://scrutinizer-ci.com/g/nelsonrojasn/maqueta/badges/build.png?b=refactorizacion-funciones-utilitarias)](https://scrutinizer-ci.com/g/nelsonrojasn/maqueta/build-status/refactorizacion-funciones-utilitarias)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nelsonrojasn/maqueta/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/nelsonrojasn/maqueta/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/nelsonrojasn/maqueta/badges/build.png?b=main)](https://scrutinizer-ci.com/g/nelsonrojasn/maqueta/build-status/main)
 
 Este proyecto trata sobre consumir el API provisto por Dog CEO como parte del desafío de desarrollo de una solución utilizando React JS.
 
@@ -20,6 +20,5 @@ Al realizar este proyecto se ha podido implementar el uso de los siguientes patr
 
 ## Test suites
 Se han creado tests sencillos para la mayoría de los componentes, con excepción de los componentes Gallery y Selector que implementan escenarios de acuerdo al uso de datos provistos en los mismos.
-
 
 
