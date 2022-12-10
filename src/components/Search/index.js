@@ -23,11 +23,11 @@ function Search() {
   }, []);
 
   function handleChangeRaza(event) {
-    let currentValue = event.target.value;
+    const currentValue = event.target.value;
     setSelectedRaza(currentValue);
     setSelectedSubRaza("");
 
-    let subRazas = razas.filter((item) => {
+    const subRazas = razas.filter((item) => {
       return item.nombre === currentValue;
     });
 
@@ -36,10 +36,10 @@ function Search() {
   }
 
   function handleChangeSubRaza(event) {
-    let currentValue = event.target.value;
+    const currentValue = event.target.value;
     setSelectedSubRaza(currentValue);
 
-    let selectedFilter =
+    const selectedFilter =
       selectedRaza + (currentValue.length > 0 ? "/" + currentValue : "");
     setSelectedFilter(selectedFilter);
   }
@@ -47,10 +47,17 @@ function Search() {
   return (
     <div className="card">
       <div className="card-body">
-        <label>Seleccione Raza</label>
-        <Selector dataSource={razas} handleChange={handleChangeRaza} />
-        <label>Seleccione Sub Raza</label>
-        <Selector dataSource={subRazas} handleChange={handleChangeSubRaza} />
+        <Selector
+          labelText="Seleccione Raza"
+          dataSource={razas}
+          handleChange={handleChangeRaza}
+        />
+
+        <Selector
+          labelText="Seleccione Sub Raza"
+          dataSource={subRazas}
+          handleChange={handleChangeSubRaza}
+        />
 
         <InfoFiltros
           selectedRaza={selectedRaza}
