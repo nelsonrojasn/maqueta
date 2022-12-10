@@ -2,8 +2,10 @@ import React from "react";
 
 function Card({ imageLink }) {
   return (
-    <div className="card mt-2" role="card">
-      <img src={imageLink} className="card-img-top" alt="dog picture" />
+    <div className="col-md-4 col-sm-12">
+      <div className="card mt-2" role="card">
+        <img src={imageLink} className="card-img-top rounded" alt="dog picture" />
+      </div>
     </div>
   );
 }
