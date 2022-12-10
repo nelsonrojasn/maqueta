@@ -13,6 +13,7 @@ function Search() {
   const [selectedFilter, setSelectedFilter] = useState("");
 
   useEffect(() => {
+    //cargar lista de razas
     fetchAllBreeds()
       .then((arrayResult) => {
         setRazas(arrayResult);
@@ -22,41 +23,38 @@ function Search() {
       });
   }, []);
 
-  function handleChangeRaza(event) {
-    const currentValue = event.target.value;
-    setSelectedRaza(currentValue);
+  useEffect(() => {
+    //actualizar filtro seleccionado
+    const selectedFilter =
+      selectedRaza + (selectedSubRaza.length > 0 ? "/" + selectedSubRaza : "");
+    setSelectedFilter(selectedFilter);
+  }, [selectedRaza, selectedSubRaza]);
+
+  useEffect(() => {
+    //actualizar lista de subrazas
     setSelectedSubRaza("");
 
     const subRazas = razas.filter((item) => {
-      return item.nombre === currentValue;
+      return item.nombre === selectedRaza;
     });
 
-    setSubRazas(subRazas[0].items);
-    setSelectedFilter(currentValue);
-  }
+    subRazas.length > 0 && setSubRazas(subRazas[0].items);
+  }, [selectedRaza, razas]);
 
-  function handleChangeSubRaza(event) {
-    const currentValue = event.target.value;
-    setSelectedSubRaza(currentValue);
-
-    const selectedFilter =
-      selectedRaza + (currentValue.length > 0 ? "/" + currentValue : "");
-    setSelectedFilter(selectedFilter);
-  }
-
+  
   return (
     <div className="card">
       <div className="card-body">
         <Selector
           labelText="Seleccione Raza"
           dataSource={razas}
-          handleChange={handleChangeRaza}
+          handleChange={(e) => setSelectedRaza(e.target.value)}
         />
 
         <Selector
           labelText="Seleccione Sub Raza"
           dataSource={subRazas}
-          handleChange={handleChangeSubRaza}
+          handleChange={(e) => setSelectedSubRaza(e.target.value)}
         />
 
         <InfoFiltros

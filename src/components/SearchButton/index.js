@@ -24,7 +24,7 @@ function SearchButton({ selectedFilter }) {
   return (
     <button
       className="btn btn-primary"
-      onClick={(event) => handleImageListUpdated(selectedFilter)}
+      onClick={(e) => handleImageListUpdated(selectedFilter)}
     >
       Ver imágenes
     </button>
