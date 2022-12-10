@@ -3,9 +3,7 @@ import React, { useState, useEffect } from "react";
 import Selector from "../Selector";
 import SearchButton from "../SearchButton";
 import InfoFiltros from "../InfoFiltros";
-
 import { fetchAllBreeds } from "../../services/FetchData";
-import { normalizeObjectAsArrayForSimpleSearch } from "../../services/UtilsHelper";
 
 function Search() {
   const [razas, setRazas] = useState([]);
@@ -16,9 +14,7 @@ function Search() {
 
   useEffect(() => {
     fetchAllBreeds()
-      .then((res) => {
-        let arrayResult = normalizeObjectAsArrayForSimpleSearch(res.message);
-
+      .then((arrayResult) => {
         setRazas(arrayResult);
       })
       .catch((e) => {
