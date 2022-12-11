@@ -23,4 +23,13 @@ En términos generales se ha procurado seguir los principios DRY, KISS y aplicar
 ## Test suites
 Se han creado tests sencillos para la mayoría de los componentes, con excepción de los componentes Gallery, ListImages y Selector que implementan escenarios de acuerdo al uso de datos provistos en los mismos.
 
+## Instalar el repositorio localmente
+1. Hacer un clon de este repositorio localmente (usando git clone https://github.com/nelsonrojasn/maqueta)
+2. Entrar en el directorio descargado en el paso anterior (cd maqueta por ejemplo)
+3. Ejecutar npm install para cargar las dependencias.
+4. Ejecutar los tests usando npm run test.
+5. Ejecutar la aplicación usando npm start.
+
+
+
 
