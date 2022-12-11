@@ -6,7 +6,7 @@ import { fetchImageListBySelectedFilter } from "../../services/FetchData";
 function SearchButton({ selectedFilter }) {
   const contextData = useContext(DataContext);
 
-  function handleImageListUpdated(selectedFilter) {
+  function handleImageListUpdate(selectedFilter) {
     if (selectedFilter.length > 0) {
       contextData.updateContextData({ imageList: [], isLoading: true });
       getImageList(selectedFilter);
@@ -24,7 +24,7 @@ function SearchButton({ selectedFilter }) {
   return (
     <button
       className="btn btn-primary"
-      onClick={(e) => handleImageListUpdated(selectedFilter)}
+      onClick={(event) => handleImageListUpdate(selectedFilter)}
     >
       Ver imágenes
     </button>

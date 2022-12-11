@@ -41,20 +41,19 @@ function Search() {
     subRazas.length > 0 && setSubRazas(subRazas[0].items);
   }, [selectedRaza, razas]);
 
-  
   return (
     <div className="card">
       <div className="card-body">
         <Selector
           labelText="Seleccione Raza"
           dataSource={razas}
-          handleChange={(e) => setSelectedRaza(e.target.value)}
+          handleChange={(event) => setSelectedRaza(event.target.value)}
         />
 
         <Selector
           labelText="Seleccione Sub Raza"
           dataSource={subRazas}
-          handleChange={(e) => setSelectedSubRaza(e.target.value)}
+          handleChange={(event) => setSelectedSubRaza(event.target.value)}
         />
 
         <InfoFiltros
