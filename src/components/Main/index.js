@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 import Gallery from "../Gallery";
 import Aside from "../Aside";

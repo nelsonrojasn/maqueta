@@ -1,27 +1,15 @@
-import React from "react";
-
-import Card from "../Card";
+import AlertMessage from "../AlertMessage";
+import LoadingMessage from "../LoadingMessage";
+import ListImages from "../ListImages";
 
 function Gallery({ dataSource, isLoading }) {
   return (
     <section className="col-md-8 col-sm-12">
-      {!isLoading && dataSource.length === 0 && (
-        <span className="alert alert-success">
-          Nada que mostrar aún. Vamos, anímate a buscar
-        </span>
-      )}
+      <AlertMessage isLoading={isLoading} dataSource={dataSource} />
+      
+      <LoadingMessage isLoading={isLoading} />
 
-      {isLoading && (
-        <span className="alert alert-info">Cargando lista de imágenes...</span>
-      )}
-
-      {dataSource && (
-        <div className="row" role="gallery">
-          {dataSource.map((item) => (
-            <Card key={"card-" + item.key} imageLink={item.url} />
-          ))}
-        </div>
-      )}
+      <ListImages dataSource={dataSource} />
     </section>
   );
 }

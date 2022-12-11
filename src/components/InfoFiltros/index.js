@@ -1,5 +1,3 @@
-import React from "react";
-
 function InfoFiltros({ selectedRaza, selectedSubRaza, selectedFilter }) {
   return (
     <div className="card mb-2">
