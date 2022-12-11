@@ -3,26 +3,16 @@ import React, { useState, useEffect } from "react";
 import Selector from "../Selector";
 import SearchButton from "../SearchButton";
 import InfoFiltros from "../InfoFiltros";
-import { fetchAllBreeds } from "../../services/FetchData";
+import {useAllRazas} from "../hooks/fetch-data-hook";
 
 function Search() {
-  const [razas, setRazas] = useState([]);
+  const razas = useAllRazas();
   const [subRazas, setSubRazas] = useState([]);
   const [selectedRaza, setSelectedRaza] = useState("");
   const [selectedSubRaza, setSelectedSubRaza] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
 
-  useEffect(() => {
-    //cargar lista de razas
-    fetchAllBreeds()
-      .then((arrayResult) => {
-        setRazas(arrayResult);
-      })
-      .catch((e) => {
-        console.log(e.message);
-      });
-  }, []);
-
+  
   useEffect(() => {
     //actualizar filtro seleccionado
     const selectedFilter =
