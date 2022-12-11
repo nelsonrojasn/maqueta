@@ -5,7 +5,7 @@ function ListImages({ dataSource }) {
     dataSource &&
     dataSource.length > 0 && (
       <>
-        <span className="badge bg-primary text-wrap">
+        <span className="badge bg-primary text-wrap d-block p-2">
           Mostrando {dataSource.length} resultados
         </span>
         <div className="row" role="gallery">
