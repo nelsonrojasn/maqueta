@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Selector from "../Selector";
 import SearchButton from "../SearchButton";
 import InfoFiltros from "../InfoFiltros";
-import {useAllRazas} from "../hooks/useAllRazas";
+import {useAllRazas} from "../../hooks/useAllRazas";
 
 function Search() {
   const razas = useAllRazas();
