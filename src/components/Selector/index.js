@@ -1,5 +1,3 @@
-import React from "react";
-
 import { toPascalCase } from "../../services/UtilsHelper";
 
 function Selector({ labelText, dataSource, handleChange }) {

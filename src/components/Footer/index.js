@@ -1,5 +1,3 @@
-import React from "react";
-
 function Footer() {
   return (
     <footer className="text-center mt-2 pt-2 pb-2">
@@ -8,7 +6,7 @@ function Footer() {
       &nbsp;
       <img
         src="https://www.gravatar.com/avatar/91d7005b68783b104617102f6874a018"
-        alt="Nelson Rojas's Face Image"
+        alt=""
         width="30"
         className="align-text-middle rounded"
       />
