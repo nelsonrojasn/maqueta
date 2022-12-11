@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 
 import { DataContext } from "../App/context";
 import { fetchImageListBySelectedFilter } from "../../services/FetchData";
