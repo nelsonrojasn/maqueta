@@ -21,6 +21,6 @@ En términos generales se ha procurado seguir los principios DRY, KISS y aplicar
 
 
 ## Test suites
-Se han creado tests sencillos para la mayoría de los componentes, con excepción de los componentes Gallery y Selector que implementan escenarios de acuerdo al uso de datos provistos en los mismos.
+Se han creado tests sencillos para la mayoría de los componentes, con excepción de los componentes Gallery, ListImages y Selector que implementan escenarios de acuerdo al uso de datos provistos en los mismos.
 
 
