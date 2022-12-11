@@ -17,6 +17,8 @@ Al realizar este proyecto se ha podido implementar el uso de los siguientes patr
 - Container/Presentational pattern: aunque no es una versión pura con clases, se ha hecho uso de este patrón implementando Hooks y Context para mantener el estado de la lista de imágenes que debe renderizar el componente Gallery. La inicialización se realizó en App, y la actualización de la lista de imágenes se gatilla desde SearchButton.
 - Observer pattern: se ha utilizado useEffect en el componente Search para refactorizar la gestión de estados para los filtros y la lista de subRazas en reemplazo de las funciones de eventos desde los controles.
 
+En términos generales se ha procurado seguir los principios DRY, KISS y aplicar SOLID en la creación de los componentes y en su refactorización.
+
 
 ## Test suites
 Se han creado tests sencillos para la mayoría de los componentes, con excepción de los componentes Gallery y Selector que implementan escenarios de acuerdo al uso de datos provistos en los mismos.
