@@ -1,3 +1,5 @@
+import React from "react";
+
 function Card({ imageLink }) {
   return (
     <div className="col-md-4 col-sm-12">
