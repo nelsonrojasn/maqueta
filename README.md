@@ -22,4 +22,3 @@ Al realizar este proyecto se ha podido implementar el uso de los siguientes patr
 Se han creado tests sencillos para la mayoría de los componentes, con excepción de los componentes Gallery y Selector que implementan escenarios de acuerdo al uso de datos provistos en los mismos.
 
 
-
