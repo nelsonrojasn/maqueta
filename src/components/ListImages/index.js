@@ -1,8 +1,9 @@
 import Card from "../Card";
 
 function ListImages({ dataSource }) {
-  if (dataSource && dataSource.length > 0) {
-    return (
+  return (
+    dataSource &&
+    dataSource.length > 0 && (
       <>
         <span className="badge bg-primary text-wrap">
           Mostrando {dataSource.length} resultados
@@ -13,7 +14,7 @@ function ListImages({ dataSource }) {
           ))}
         </div>
       </>
-    );
-  }
+    )
+  );
 }
 export default ListImages;
