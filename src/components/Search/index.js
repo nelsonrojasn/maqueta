@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Selector from "../Selector";
 import SearchButton from "../SearchButton";
 import InfoFiltros from "../InfoFiltros";
-import {useAllRazas} from "../../hooks/useAllRazas";
+import { useAllRazas } from "../../hooks/useAllRazas";
 
 function Search() {
   const razas = useAllRazas();
@@ -12,7 +12,6 @@ function Search() {
   const [selectedSubRaza, setSelectedSubRaza] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("");
 
-  
   useEffect(() => {
     //actualizar filtro seleccionado
     const selectedFilter =
@@ -24,11 +23,11 @@ function Search() {
     //actualizar lista de subrazas
     setSelectedSubRaza("");
 
-    const subRazas = razas.filter((item) => {
-      return item.nombre === selectedRaza;
+    const subRazas = razas.find((item) => {
+      item.nombre === selectedRaza;
     });
 
-    subRazas.length > 0 && setSubRazas(subRazas[0].items);
+    subRazas && subRazas.length > 0 && setSubRazas(subRazas[0].items);
   }, [selectedRaza, razas]);
 
   return (
