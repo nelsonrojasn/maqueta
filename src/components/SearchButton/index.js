@@ -10,6 +10,8 @@ function SearchButton({ selectedFilter }) {
     if (selectedFilter.length > 0) {
       contextData.updateContextData({ imageList: [], isLoading: true });
       getImageList(selectedFilter);
+    } else {
+      contextData.updateContextData({ imageList: [], isLoading: false });
     }
   }
 
