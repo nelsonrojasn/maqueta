@@ -2,7 +2,7 @@ import React from "react";
 
 import { toPascalCase } from "../../services/UtilsHelper";
 
-function Selector({ labelText, dataSource, handleChange }) {
+function Selector({ labelText, dataSource, handleChange, value }) {
   return (
     <>
     <label>{labelText}</label>
@@ -10,7 +10,7 @@ function Selector({ labelText, dataSource, handleChange }) {
       className="form-select mb-2"
       aria-label={labelText}
       role="dropdown"
-      defaultValue={""}
+      value={value}
       onChange={(event) => handleChange(event)}
     >
       <option value="">Seleccionar</option>

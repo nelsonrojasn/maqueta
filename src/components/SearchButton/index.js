@@ -25,10 +25,10 @@ function SearchButton({ selectedFilter }) {
 
   return (
     <button
-      className="btn btn-primary"
+      className="btn btn-primary w-100"
       onClick={(event) => handleImageListUpdate(selectedFilter)}
     >
-      Ver imágenes
+      <i className="fa-solid fa-image"></i> Ver imágenes
     </button>
   );
 }
