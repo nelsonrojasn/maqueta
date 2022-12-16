@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header() {
+export default function ViewHeader() {
   return (
     <nav className="navbar bg-light">
       <div className="container-fluid">
@@ -9,5 +9,3 @@ function Header() {
     </nav>
   );
 }
-
-export default Header;

@@ -1,7 +1,7 @@
 export const normalizeItemsForSimpleSearch = (items) => {
   let arrayItems = [];
   items.map((item) => {
-    arrayItems.push({ nombre: item });
+    arrayItems.push({ name: item });
   });
   return arrayItems;
 };
@@ -11,7 +11,7 @@ export const normalizeObjectAsArrayForSimpleSearch = (dataSource) => {
 
   Object.entries(dataSource).map((item) =>
     resultArray.push({
-      nombre: item[0],
+      name: item[0],
       items: normalizeItemsForSimpleSearch(item[1]),
     })
   );
