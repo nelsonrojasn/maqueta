@@ -12,19 +12,8 @@ export default function BreedsSearchContainer() {
   const [subBreedsArray, setSubBreedsArray] = useState([]);
   const [selectedBreed, setSelectedBreed] = useState("");
   const [selectedSubBreed, setSelectedSubBreed] = useState("");
-  //const [selectedFilter, setSelectedFilter] = useState("");
 
   const selectedFilter = `${selectedBreed}/${selectedSubBreed}`;
-
-  //useEffect(() => {
-  //  //actualizar filtro seleccionado
-  //  const selectedFilter =
-  //    selectedBreed +
-  //    (selectedSubBreed && selectedSubBreed.length > 0
-  //      ? "/" + selectedSubBreed
-  //      : "");
-  //  setSelectedFilter(selectedFilter);
-  //}, [selectedBreed, selectedSubBreed]);
 
   useEffect(() => {
     //actualizar lista de subbreeds
