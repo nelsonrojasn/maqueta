@@ -1,13 +1,13 @@
 import React from "react";
 
-function LoadingMessage({ isLoading }) {
+export default function InfoLoadingMessage({ isLoading }) {
   return (
     isLoading && (
       <span className="badge bg-info text-wrap d-block p-2">
-        Cargando lista de imágenes...
+        Please wait for image list... loading
       </span>
     )
   );
 }
 
-export default LoadingMessage;
+

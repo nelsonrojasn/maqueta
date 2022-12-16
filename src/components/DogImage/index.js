@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card({ imageLink }) {
+export default function DogImage({ imageLink }) {
   return (
     <div className="col-md-4 col-sm-12">
       <div className="card mt-2" role="card">
@@ -10,4 +10,4 @@ function Card({ imageLink }) {
   );
 }
 
-export default Card;
+

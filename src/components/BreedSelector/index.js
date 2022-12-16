@@ -2,7 +2,7 @@ import React from "react";
 
 import { toPascalCase } from "../../services/UtilsHelper";
 
-function Selector({ labelText, dataSource, handleChange, value }) {
+export default function BreedSelector({ labelText, dataSource, handleChange, value }) {
   return (
     <>
     <label>{labelText}</label>
@@ -13,16 +13,14 @@ function Selector({ labelText, dataSource, handleChange, value }) {
       value={value}
       onChange={(event) => handleChange(event)}
     >
-      <option value="">Seleccionar</option>
+      <option value="">Select</option>
       {dataSource &&
         dataSource.map((item) => (
-          <option key={item.nombre} value={item.nombre}>
-            {toPascalCase(item.nombre)}
+          <option key={item.name} value={item.name}>
+            {toPascalCase(item.name)}
           </option>
         ))}
     </select>
     </>
   );
 }
-
-export default Selector;

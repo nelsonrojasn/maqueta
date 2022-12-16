@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 
-import Header from "../Header";
-import Footer from "../Footer";
-import Main from "../Main";
+import ViewHeader from "../ViewHeader";
+import ViewFooter from "../ViewFooter";
+import MainContainer from "../MainContainer";
 
-import {DataContext} from "./context";
+import {ImageListContext} from "./context";
 
 function App() {
   const [data, setData] = useState({ imageList: [], isLoading: false });
 
-  function updateContextData(newData) {
+  function updateImageListContext(newData) {
     setData(newData);
   }
 
-  const providerValue = { data: data, updateContextData };
+  const providerValue = { data: data, updateImageListContext };
 
   return (
     <div className="container" role="app">
-      <Header />
-      <DataContext.Provider value={providerValue}>
-        <Main />
-      </DataContext.Provider>
-      <Footer />
+      <ViewHeader />
+      <ImageListContext.Provider value={providerValue}>
+        <MainContainer />
+      </ImageListContext.Provider>
+      <ViewFooter />
     </div>
   );
 }

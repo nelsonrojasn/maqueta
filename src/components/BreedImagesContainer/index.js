@@ -1,22 +1,21 @@
 import React from "react";
 
-import Card from "../Card";
+import DogImage from "../DogImage";
 
-function ListImages({ dataSource }) {
+export default function BreedImagesContainer({ dataSource }) {
   return (
     dataSource &&
     dataSource.length > 0 && (
       <>
         <span className="badge bg-primary text-wrap d-block p-2">
-          Mostrando {dataSource.length} resultados
+          {dataSource.length} images found
         </span>
         <div className="row" role="gallery">
           {dataSource.map((item) => (
-            <Card key={"card-" + item.key} imageLink={item.url} />
+            <DogImage key={"card-" + item.key} imageLink={item.url} />
           ))}
         </div>
       </>
     )
   );
 }
-export default ListImages;

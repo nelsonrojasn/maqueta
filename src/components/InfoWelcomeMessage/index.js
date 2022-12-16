@@ -1,13 +1,13 @@
 import React from "react";
 
-function AlertMessage({ dataSource, isLoading }) {
+export default function InfoWelcomeMessage({ dataSource, isLoading }) {
   return (
     !isLoading &&
     dataSource.length === 0 && (
       <span className="badge bg-success text-wrap d-block p-2">
-        Nada que mostrar aún. Vamos, anímate a buscar
+        Nothing to see yet! Please select from filters and apply it to get some cute dog images.
       </span>
     )
   );
 }
-export default AlertMessage;
+
